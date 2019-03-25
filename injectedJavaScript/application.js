@@ -1,4 +1,4 @@
-var content = (penColor, backgroundColor, dataURL, minWidth, maxWidth) => `
+const content = (penColor, backgroundColor, minWidth, maxWidth, dataURL) => `
 
   var showSignaturePad = function (signaturePadCanvas, bodyWidth, bodyHeight) {
     /*We're rotating by 90% -> Flip X and Y*/
@@ -33,8 +33,8 @@ var content = (penColor, backgroundColor, dataURL, minWidth, maxWidth) => `
         point.x = translatedX;
         point.y = translatedY;
       }; */
-      signaturePad.minWidth = 6;
-      signaturePad.maxWidth = 6;
+      signaturePad.minWidth = ${minWidth || 1};
+      signaturePad.maxWidth = ${maxWidth || 4};
       if ('${dataURL}') {
         signaturePad.fromDataURL('${dataURL}');
       }
